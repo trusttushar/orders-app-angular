@@ -1,0 +1,42 @@
+<h1>{{page}} Orders form</h1>
+<form [formGroup]="ordersForm" (ngSubmit)='onSubmit()'>
+  <div class="form-group">
+    <label>Dish Name</label>
+    <input type="text" formControlName='dishName' />
+    <span class="error" *ngIf="ordersForm.get('dishName')?.invalid && ordersForm.get('dishName')?.touched">
+      {{"dishName is not valid"}}</span>
+  </div>
+  <div class="form-group">
+    <label>Price</label>
+    <input type="number" formControlName='price' />
+    <span class="error" *ngIf="ordersForm.get('price')?.invalid && ordersForm.get('date')?.touched">
+      {{"price is not valid"}}</span>
+
+  </div>
+  <div class="form-group">
+    <label>Date</label>
+    <input type="date" formControlName='date' />
+    <span class="error"
+      *ngIf="ordersForm.get('date')?.invalid && ordersForm.get('date')?.touched">{{"date is not valid"}}
+    </span>
+
+  </div>
+  <div class="form-group">
+    <label>Phone</label>
+    <input type="number" formControlName='phone' />
+    <span class="error" *ngIf="ordersForm.get('phone')?.invalid && ordersForm.get('phone')?.touched">
+      {{"phone is not valid"}}</span>
+
+  </div>
+  <div class="form-group">
+    <label>Email</label>
+    <input type="text" formControlName='email' />
+    <span class="error" *ngIf="ordersForm.get('email')?.invalid && ordersForm.get('email')?.touched">
+      {{"email is not valid"}}</span>
+
+  </div>
+  <div class="form-group">
+    <button type="submit" [disabled]='ordersForm.invalid'>Submit</button>
+  </div>
+
+</form>

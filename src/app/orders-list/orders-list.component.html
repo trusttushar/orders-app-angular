@@ -1,0 +1,16 @@
+<h1>Orders list</h1>
+<div class="todo-container" *ngIf="orderList.length; else noData">
+  <div class="todo-item" *ngFor="let item of orderList; index as i">
+    <div>{{ item.id }}</div>
+    <div>{{ item.email }}</div>
+    <div>{{ item.phone }}</div>
+    <div>{{ item.dishName }}</div>
+    <div>{{ item.price }}</div>
+    <div>{{ item.date | date: "dd/MM/yy" }}</div>
+    <button (click)="remove(item.id)">Remove</button>
+    <button [routerLink]="['/edit',item.id]">Edit</button>
+  </div>
+</div>
+<ng-template #noData>
+  <h5>No Orders are there</h5>
+</ng-template>
